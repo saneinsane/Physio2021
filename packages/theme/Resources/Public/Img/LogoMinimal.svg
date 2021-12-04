@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="492px" height="35px" viewBox="0 0 492 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>LogoMinimal</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-weight="bold" font-size="38" font-family="HelveticaNeue-Bold, Helvetica Neue" letter-spacing="0.444444388">
+        <g id="LogoMinimal" transform="translate(-2.000000, -10.000000)" fill="#EB7973">
+            <g id="PhysioText">
+                <text id="Physiotherapie-im-Me">
+                    <tspan x="0" y="37">Physiotherapie</tspan>
+                    <tspan x="276.402221" y="37" font-size="20"> </tspan>
+                    <tspan x="282.406666" y="37" font-family="HelveticaNeue-Light, Helvetica Neue" font-size="22" font-weight="300">im</tspan>
+                    <tspan x="305.691555" y="37" font-size="20"> </tspan>
+                    <tspan x="311.695999" y="37" font-family="HelveticaNeue-Light, Helvetica Neue" font-size="39" font-weight="300">MediaPark</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

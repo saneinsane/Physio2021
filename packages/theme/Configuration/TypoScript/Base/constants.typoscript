@@ -1,0 +1,19 @@
+@import "EXT:fluid_styled_content/Configuration/TypoScript/constants.typoscript"
+@import "EXT:seo/Configuration/TypoScript/XmlSitemap/constants.typoscript"
+
+styles.templates {
+    # cat=content/templates/b1; type=string; label= Path of Fluid Templates for all defined content elements
+    templateRootPath = EXT:theme/Resources/Private/Templates/Content
+}
+
+plugin.tx_theme {
+    view {
+        # cat=plugin.tx_theme_showcases/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:theme/Resources/Private/Templates/
+        # cat=plugin.tx_theme_showcases/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:theme/Resources/Private/Partials/
+        # cat=plugin.tx_theme_showcases/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:theme/Resources/Private/Layouts/
+    }
+}
+

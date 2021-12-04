@@ -1,0 +1,53 @@
+@import "EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript"
+@import "EXT:seo/Configuration/TypoScript/XmlSitemap/setup.typoscript"
+
+lib.getContents < styles.content.get
+lib.getContents {
+  select.where.field = colPos
+  select.where.intval = 1
+  select.where.wrap = {#colPos}=|
+}
+
+plugin.tx_theme {
+  view {
+    templateRootPaths.0 = EXT:{extension.shortExtensionKey}/Resources/Private/Templates/
+    templateRootPaths.1 = {$plugin.tx_theme_showcases.view.templateRootPath}
+    partialRootPaths.0 = EXT:theme/Resources/Private/Partials/
+    partialRootPaths.1 = {$plugin.tx_theme_showcases.view.partialRootPath}
+    layoutRootPaths.0 = EXT:tx_theme/Resources/Private/Layouts/
+    layoutRootPaths.1 = {$plugin.tx_theme_showcases.view.layoutRootPath}
+  }
+}
+
+page = PAGE
+page {
+
+  meta {
+    keywords.data = levelfield :-1, keywords, slide
+    description.data = levelfield :-1, description, slide
+    viewport = width=device-width,initial-scale=1.0
+  }
+
+  10 = FLUIDTEMPLATE
+  10 {
+    extbase.controllerExtensionName = theme
+
+    layoutRootPaths.10 = EXT:theme/Resources/Private/Layouts/Page
+    partialRootPaths.10 = EXT:theme/Resources/Private/Partials/Page
+    templateRootPaths.10 = EXT:theme/Resources/Private/Templates/Page
+
+    templateName.stdWrap.cObject = CASE
+    templateName.stdWrap.cObject {
+      key.data = pagelayout
+
+      default = TEXT
+      default.value = Default
+    }
+  }
+}
+
+[applicationContext == "Production"]
+  #config.sendCacheHeaders = 1
+[else]
+[global]
+config.contentObjectExceptionHandler = 0

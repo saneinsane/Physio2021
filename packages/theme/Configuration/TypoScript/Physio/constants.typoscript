@@ -1,0 +1,9 @@
+@import "EXT:theme/Configuration/TypoScript/Base/constants.typoscript"
+
+plugin.tx_theme {
+  settings {
+    pid {
+      news =
+    }
+  }
+}

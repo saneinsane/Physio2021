@@ -1,0 +1,33 @@
+@import "EXT:theme/Configuration/TypoScript/Base/setup.typoscript"
+
+page {
+	includeCSS {
+		main = EXT:theme/Resources/Public/Css/main.css
+		tailwind = https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css
+		tailwind {
+			external = 1
+		}
+	}
+	includeJS {
+		alpine = EXT:theme/Resources/Public/Js/alpine.js
+		alpine {
+			external = 1
+			defer = 1
+		}
+	}
+	10 {
+		dataProcessing {
+			10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+			10 {
+				levels = 2
+				as = headerMenu
+				expandAll = 1
+				titleField = nav_title // title
+			}
+		}
+		variables {
+			huh=TEXT
+			huh.value = hoh
+		}
+	}
+}

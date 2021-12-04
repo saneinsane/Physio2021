@@ -1,0 +1,93 @@
+<div x-data="{ isOpen: false }">
+    <div class="flex justify-between bg-red-500">
+        <div class="max-w-7xl mx-auto py-1 px-3 sm:px-6 lg:px-8">
+            <div class="pr-16 sm:text-center sm:px-16">
+                <p class="font-medium text-white">
+                <span class="md:hidden">
+                    <f:link.page pageUid="7" class="text-white font-bold underline">Hinweise zu Corona</f:link.page>
+                </span>
+                    <span class="hidden lg:hidden md:inline">
+                    <f:link.page pageUid="7" class="text-white font-bold underline">Unsere Hinweise zum Umgang mit Corona</f:link.page>
+                </span>
+                    <span class="hidden lg:inline">
+                    Bitte beachten Sie unsere  <f:link.page pageUid="7" class="text-white font-bold underline">Hinweise zum Umgang mit Corona</f:link.page>
+                </span>
+                </p>
+            </div>
+        </div>
+        <div class="md:hidden">
+            <button x-show="!isOpen" @click="isOpen = true" type="button"
+                    class="inline-flex mx-3 my-1 items-center justify-center text-white hover:text-red hover:bg-red-300 focus:outline-none"
+                    aria-expanded="false">
+                <span class="sr-only">Menü öffnen</span>
+                <!-- Heroicon name: outline/menu -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                     stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+            <button x-show="isOpen" @click="isOpen = false" type="button"
+                    class="inline-flex mx-3 my-1 items-center justify-center text-white hover:text-red hover:bg-red-300 focus:outline-none">
+                <span class="sr-only">Menü schließen</span>
+                <!-- Heroicon name: outline/x -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 24 24"
+                     stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="relative bg-gray-50">
+        <div class="relative bg-white shadow">
+            <div class="hidden md:block max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="flex justify-end md:justify-between items-center py-2 md:space-x-10">
+                    <div class="flex justify-start lg:w-0 lg:flex-1">
+                        <a href="/">
+                            <span class="sr-only">Physiotherapie im MediaPark</span>
+                            <img class="h-8 w-auto sm:h-10"
+                                 src="{f:uri.resource(path: 'Img/LogoFull.svg')}" alt="Physiotherapie im MediaPark">
+                        </a>
+                    </div>
+
+                    <nav class="hidden md:flex space-x-10">
+                        <f:for each="{headerMenu}" as="item">
+                            <a href="{item.link}" class="text-base font-medium text-gray-500 hover:text-gray-900">
+                                {item.title}
+                            </a>
+                        </f:for>
+                    </nav>
+                </div>
+            </div>
+
+            <div x-show="isOpen"
+                 x-transition:enter="duration-200 ease-out"
+                 x-transition:enter-start="opacity-0 scale-95"
+                 x-transition:enter-end="opacity-100 scale-100"
+                 x-transition:leave="duration-100 ease-in"
+                 x-transition:leave-start="opacity-100 scale-100"
+                 x-transition:leave-end="opacity-0 scale-95"
+                 class="absolute top-0 inset-x-0 z-10 p-2 transition transform origin-top-right md:hidden">
+                <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+                    <div class="pt-5 pb-6 px-5">
+                        <div>
+                            <nav class="grid gap-y-2">
+                                <f:for each="{headerMenu}" as="item">
+                                    <a href="{item.link}"
+                                       class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                                    <span class="text-base font-medium text-gray-900">
+                                      {item.title}
+                                    </span>
+                                    </a>
+                                </f:for>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

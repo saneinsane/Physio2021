@@ -1,0 +1,24 @@
+{
+    "name": "mindopen/theme",
+    "type": "typo3-cms-extension",
+    "description": "Theme physiotherapie-im-mediapark",
+    "authors": [],
+    "autoload": {
+        "psr-4": {
+            "Mindopen\\Theme\\": "Classes"
+        }
+    },
+    "replace": {
+        "mindopen/theme": "self.version",
+        "typo3-ter/theme": "self.version"
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "theme"
+        }
+    },
+    "require": {
+        "spatie/schema-org": "^3.4.0",
+        "ichhabrecht/content-defender": "^3.2.1"
+    }
+}
