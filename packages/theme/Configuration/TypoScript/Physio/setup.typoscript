@@ -25,9 +25,5 @@ page {
 				titleField = nav_title // title
 			}
 		}
-		variables {
-			huh=TEXT
-			huh.value = hoh
-		}
 	}
 }

@@ -63,27 +63,32 @@
                 </div>
             </div>
 
-            <div x-show="isOpen"
+            <div x-show="isOpen" id="mobilenav"
                  x-transition:enter="duration-200 ease-out"
                  x-transition:enter-start="opacity-0 scale-95"
                  x-transition:enter-end="opacity-100 scale-100"
                  x-transition:leave="duration-100 ease-in"
                  x-transition:leave-start="opacity-100 scale-100"
                  x-transition:leave-end="opacity-0 scale-95"
-                 class="absolute top-0 inset-x-0 z-40 p-2 transition transform origin-top-right md:hidden">
-                <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
-                    <div class="pt-5 pb-6 px-5">
-                        <nav class="grid gap-y-2">
-                            <f:for each="{headerMenu}" as="item">
+                 @click.outside="isOpen = false"
+                 class="absolute top-0 inset-x-0 z-40 transition transform origin-top-right md:hidden">
+                <div class="ring-1 ring-black ring-opacity-5 bg-white">
+                    <nav class="px-2">
+                        <f:for each="{headerMenu}" as="item" iteration="itemIter">
+                            <div class="{f:if(condition: itemIter.isLast, else: 'border-b border-red-500')}">
                                 <a href="{item.link}"
-                                   class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                                    <span class="text-base font-medium text-gray-900">
-                                      {item.title}
-                                    </span>
+                                   class=" group flex items-center px-2 py-2 text-base font-medium">
+                                    {item.title}
                                 </a>
-                            </f:for>
-                        </nav>
-                    </div>
+                                <f:for each="{item.children}" as="childItem">
+                                    <a href="{childItem.link}"
+                                       class="group flex items-center ml-3 px-2 py-1 text-base font-light">
+                                        {childItem.title}
+                                    </a>
+                                </f:for>
+                            </div>
+                        </f:for>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -95,5 +100,5 @@
          x-transition:leave="ease-in duration-200"
          x-transition:leave-start="opacity-100"
          x-transition:leave-end="opacity-0"
-        class="fixed inset-0 bg-black bg-opacity-50 transition-opacity z-20 top-9" aria-hidden="true"></div>
+         class="fixed inset-0 bg-black bg-opacity-50 transition-opacity z-20 top-9" aria-hidden="true"></div>
 </div>
