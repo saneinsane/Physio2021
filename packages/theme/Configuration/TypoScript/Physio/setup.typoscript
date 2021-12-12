@@ -21,6 +21,7 @@ page {
 			10 {
 				levels = 2
 				as = headerMenu
+				includeNotInMenu = 1
 				expandAll = 1
 				titleField = nav_title // title
 			}
